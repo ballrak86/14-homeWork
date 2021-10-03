@@ -1,0 +1,1104 @@
+root@otssTestServer:/home/lx/git/test# vagrant ssh
+[vagrant@vm-gkuOA1801016 ~]$ sudo -i
+root@otssTestServer:/home/lx/git/test# vagrant ssh
+[vagrant@vm-gkuOA1801016 ~]$ sudo -i
+[root@vm-gkuOA1801016 ~]# yum install -y yum-utils
+Failed to set locale, defaulting to C
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+ * base: mirror.corbina.net
+ * extras: mirror.corbina.net
+ * updates: mirror.corbina.net
+base                                                                                                                                  | 3.6 kB  00:00:00
+extras                                                                                                                                | 2.9 kB  00:00:00
+updates                                                                                                                               | 2.9 kB  00:00:00
+(1/4): base/7/x86_64/group_gz                                                                                                         | 153 kB  00:00:00
+(2/4): base/7/x86_64/primary_db                                                                                                       | 6.1 MB  00:00:00
+(3/4): extras/7/x86_64/primary_db                                                                                                     | 243 kB  00:00:00
+(4/4): updates/7/x86_64/primary_db                                                                                                    |  11 MB  00:00:05
+Resolving Dependencies
+--> Running transaction check
+---> Package yum-utils.noarch 0:1.1.31-53.el7 will be updated
+---> Package yum-utils.noarch 0:1.1.31-54.el7_8 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================
+ Package                               Arch                               Version                                     Repository                        Size
+=============================================================================================================================================================
+Updating:
+ yum-utils                             noarch                             1.1.31-54.el7_8                             base                             122 k
+
+Transaction Summary
+=============================================================================================================================================================
+Upgrade  1 Package
+
+Total download size: 122 k
+Downloading packages:
+No Presto metadata available for base
+warning: /var/cache/yum/x86_64/7/base/packages/yum-utils-1.1.31-54.el7_8.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for yum-utils-1.1.31-54.el7_8.noarch.rpm is not installed
+yum-utils-1.1.31-54.el7_8.noarch.rpm                                                                                                  | 122 kB  00:00:00
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-8.2003.0.el7.centos.x86_64 (@anaconda)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : yum-utils-1.1.31-54.el7_8.noarch                                                                                                          1/2
+  Cleanup    : yum-utils-1.1.31-53.el7.noarch                                                                                                            2/2
+  Verifying  : yum-utils-1.1.31-54.el7_8.noarch                                                                                                          1/2
+  Verifying  : yum-utils-1.1.31-53.el7.noarch                                                                                                            2/2
+
+Updated:
+  yum-utils.noarch 0:1.1.31-54.el7_8
+
+Complete!
+[root@vm-gkuOA1801016 ~]# yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+Failed to set locale, defaulting to C
+Loaded plugins: fastestmirror
+adding repo from: https://download.docker.com/linux/centos/docker-ce.repo
+grabbing file https://download.docker.com/linux/centos/docker-ce.repo to /etc/yum.repos.d/docker-ce.repo
+repo saved to /etc/yum.repos.d/docker-ce.repo
+[root@vm-gkuOA1801016 ~]# yum install docker-ce docker-ce-cli containerd.io
+Failed to set locale, defaulting to C
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.corbina.net
+ * extras: mirror.corbina.net
+ * updates: mirror.corbina.net
+docker-ce-stable                                                                                                                      | 3.5 kB  00:00:00
+(1/2): docker-ce-stable/7/x86_64/updateinfo                                                                                           |   55 B  00:00:00
+(2/2): docker-ce-stable/7/x86_64/primary_db                                                                                           |  64 kB  00:00:00
+Resolving Dependencies
+--> Running transaction check
+---> Package containerd.io.x86_64 0:1.4.10-3.1.el7 will be installed
+--> Processing Dependency: container-selinux >= 2:2.74 for package: containerd.io-1.4.10-3.1.el7.x86_64
+---> Package docker-ce.x86_64 3:20.10.8-3.el7 will be installed
+--> Processing Dependency: docker-ce-rootless-extras for package: 3:docker-ce-20.10.8-3.el7.x86_64
+--> Processing Dependency: libcgroup for package: 3:docker-ce-20.10.8-3.el7.x86_64
+---> Package docker-ce-cli.x86_64 1:20.10.8-3.el7 will be installed
+--> Processing Dependency: docker-scan-plugin(x86-64) for package: 1:docker-ce-cli-20.10.8-3.el7.x86_64
+--> Running transaction check
+---> Package container-selinux.noarch 2:2.119.2-1.911c772.el7_8 will be installed
+--> Processing Dependency: policycoreutils-python for package: 2:container-selinux-2.119.2-1.911c772.el7_8.noarch
+---> Package docker-ce-rootless-extras.x86_64 0:20.10.8-3.el7 will be installed
+--> Processing Dependency: fuse-overlayfs >= 0.7 for package: docker-ce-rootless-extras-20.10.8-3.el7.x86_64
+--> Processing Dependency: slirp4netns >= 0.4 for package: docker-ce-rootless-extras-20.10.8-3.el7.x86_64
+---> Package docker-scan-plugin.x86_64 0:0.8.0-3.el7 will be installed
+---> Package libcgroup.x86_64 0:0.41-21.el7 will be installed
+--> Running transaction check
+---> Package fuse-overlayfs.x86_64 0:0.7.2-6.el7_8 will be installed
+--> Processing Dependency: libfuse3.so.3(FUSE_3.2)(64bit) for package: fuse-overlayfs-0.7.2-6.el7_8.x86_64
+--> Processing Dependency: libfuse3.so.3(FUSE_3.0)(64bit) for package: fuse-overlayfs-0.7.2-6.el7_8.x86_64
+--> Processing Dependency: libfuse3.so.3()(64bit) for package: fuse-overlayfs-0.7.2-6.el7_8.x86_64
+---> Package policycoreutils-python.x86_64 0:2.5-34.el7 will be installed
+--> Processing Dependency: setools-libs >= 3.3.8-4 for package: policycoreutils-python-2.5-34.el7.x86_64
+--> Processing Dependency: libsemanage-python >= 2.5-14 for package: policycoreutils-python-2.5-34.el7.x86_64
+--> Processing Dependency: audit-libs-python >= 2.1.3-4 for package: policycoreutils-python-2.5-34.el7.x86_64
+--> Processing Dependency: python-IPy for package: policycoreutils-python-2.5-34.el7.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.4)(64bit) for package: policycoreutils-python-2.5-34.el7.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.2)(64bit) for package: policycoreutils-python-2.5-34.el7.x86_64
+--> Processing Dependency: libapol.so.4(VERS_4.0)(64bit) for package: policycoreutils-python-2.5-34.el7.x86_64
+--> Processing Dependency: checkpolicy for package: policycoreutils-python-2.5-34.el7.x86_64
+--> Processing Dependency: libqpol.so.1()(64bit) for package: policycoreutils-python-2.5-34.el7.x86_64
+--> Processing Dependency: libapol.so.4()(64bit) for package: policycoreutils-python-2.5-34.el7.x86_64
+---> Package slirp4netns.x86_64 0:0.4.3-4.el7_8 will be installed
+--> Running transaction check
+---> Package audit-libs-python.x86_64 0:2.8.5-4.el7 will be installed
+---> Package checkpolicy.x86_64 0:2.5-8.el7 will be installed
+---> Package fuse3-libs.x86_64 0:3.6.1-4.el7 will be installed
+---> Package libsemanage-python.x86_64 0:2.5-14.el7 will be installed
+---> Package python-IPy.noarch 0:0.75-6.el7 will be installed
+---> Package setools-libs.x86_64 0:3.3.8-4.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================
+ Package                                     Arch                     Version                                       Repository                          Size
+=============================================================================================================================================================
+Installing:
+ containerd.io                               x86_64                   1.4.10-3.1.el7                                docker-ce-stable                    28 M
+ docker-ce                                   x86_64                   3:20.10.8-3.el7                               docker-ce-stable                    23 M
+ docker-ce-cli                               x86_64                   1:20.10.8-3.el7                               docker-ce-stable                    29 M
+Installing for dependencies:
+ audit-libs-python                           x86_64                   2.8.5-4.el7                                   base                                76 k
+ checkpolicy                                 x86_64                   2.5-8.el7                                     base                               295 k
+ container-selinux                           noarch                   2:2.119.2-1.911c772.el7_8                     extras                              40 k
+ docker-ce-rootless-extras                   x86_64                   20.10.8-3.el7                                 docker-ce-stable                   8.0 M
+ docker-scan-plugin                          x86_64                   0.8.0-3.el7                                   docker-ce-stable                   4.2 M
+ fuse-overlayfs                              x86_64                   0.7.2-6.el7_8                                 extras                              54 k
+ fuse3-libs                                  x86_64                   3.6.1-4.el7                                   extras                              82 k
+ libcgroup                                   x86_64                   0.41-21.el7                                   base                                66 k
+ libsemanage-python                          x86_64                   2.5-14.el7                                    base                               113 k
+ policycoreutils-python                      x86_64                   2.5-34.el7                                    base                               457 k
+ python-IPy                                  noarch                   0.75-6.el7                                    base                                32 k
+ setools-libs                                x86_64                   3.3.8-4.el7                                   base                               620 k
+ slirp4netns                                 x86_64                   0.4.3-4.el7_8                                 extras                              81 k
+
+Transaction Summary
+=============================================================================================================================================================
+Install  3 Packages (+13 Dependent packages)
+
+Total download size: 95 M
+Installed size: 382 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/16): audit-libs-python-2.8.5-4.el7.x86_64.rpm                                                                                      |  76 kB  00:00:00
+(2/16): container-selinux-2.119.2-1.911c772.el7_8.noarch.rpm                                                                          |  40 kB  00:00:00
+(3/16): checkpolicy-2.5-8.el7.x86_64.rpm                                                                                              | 295 kB  00:00:00
+warning: /var/cache/yum/x86_64/7/docker-ce-stable/packages/docker-ce-20.10.8-3.el7.x86_64.rpm: Header V4 RSA/SHA512 Signature, key ID 621e9f35: NOKEY:13 ETA
+Public key for docker-ce-20.10.8-3.el7.x86_64.rpm is not installed
+(4/16): docker-ce-20.10.8-3.el7.x86_64.rpm                                                                                            |  23 MB  00:00:02
+(5/16): containerd.io-1.4.10-3.1.el7.x86_64.rpm                                                                                       |  28 MB  00:00:02
+(6/16): docker-ce-rootless-extras-20.10.8-3.el7.x86_64.rpm                                                                            | 8.0 MB  00:00:00
+(7/16): docker-scan-plugin-0.8.0-3.el7.x86_64.rpm                                                                                     | 4.2 MB  00:00:00
+(8/16): fuse-overlayfs-0.7.2-6.el7_8.x86_64.rpm                                                                                       |  54 kB  00:00:00
+(9/16): docker-ce-cli-20.10.8-3.el7.x86_64.rpm                                                                                        |  29 MB  00:00:01
+(10/16): fuse3-libs-3.6.1-4.el7.x86_64.rpm                                                                                            |  82 kB  00:00:02
+(11/16): libcgroup-0.41-21.el7.x86_64.rpm                                                                                             |  66 kB  00:00:02
+(12/16): libsemanage-python-2.5-14.el7.x86_64.rpm                                                                                     | 113 kB  00:00:02
+(13/16): python-IPy-0.75-6.el7.noarch.rpm                                                                                             |  32 kB  00:00:00
+(14/16): policycoreutils-python-2.5-34.el7.x86_64.rpm                                                                                 | 457 kB  00:00:00
+(15/16): setools-libs-3.3.8-4.el7.x86_64.rpm                                                                                          | 620 kB  00:00:00
+(16/16): slirp4netns-0.4.3-4.el7_8.x86_64.rpm                                                                                         |  81 kB  00:00:00
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                         16 MB/s |  95 MB  00:00:05
+Retrieving key from https://download.docker.com/linux/centos/gpg
+Importing GPG key 0x621E9F35:
+ Userid     : "Docker Release (CE rpm) <docker@docker.com>"
+ Fingerprint: 060a 61c5 1b55 8a7f 742b 77aa c52f eb6b 621e 9f35
+ From       : https://download.docker.com/linux/centos/gpg
+Is this ok [y/N]: y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libcgroup-0.41-21.el7.x86_64                                                                                                             1/16
+  Installing : 1:docker-ce-cli-20.10.8-3.el7.x86_64                                                                                                     2/16
+  Installing : docker-scan-plugin-0.8.0-3.el7.x86_64                                                                                                    3/16
+  Installing : setools-libs-3.3.8-4.el7.x86_64                                                                                                          4/16
+  Installing : python-IPy-0.75-6.el7.noarch                                                                                                             5/16
+  Installing : slirp4netns-0.4.3-4.el7_8.x86_64                                                                                                         6/16
+  Installing : libsemanage-python-2.5-14.el7.x86_64                                                                                                     7/16
+  Installing : audit-libs-python-2.8.5-4.el7.x86_64                                                                                                     8/16
+  Installing : fuse3-libs-3.6.1-4.el7.x86_64                                                                                                            9/16
+  Installing : fuse-overlayfs-0.7.2-6.el7_8.x86_64                                                                                                     10/16
+  Installing : checkpolicy-2.5-8.el7.x86_64                                                                                                            11/16
+  Installing : policycoreutils-python-2.5-34.el7.x86_64                                                                                                12/16
+  Installing : 2:container-selinux-2.119.2-1.911c772.el7_8.noarch                                                                                      13/16
+  Installing : containerd.io-1.4.10-3.1.el7.x86_64                                                                                                     14/16
+  Installing : docker-ce-rootless-extras-20.10.8-3.el7.x86_64                                                                                          15/16
+  Installing : 3:docker-ce-20.10.8-3.el7.x86_64                                                                                                        16/16
+  Verifying  : checkpolicy-2.5-8.el7.x86_64                                                                                                             1/16
+  Verifying  : fuse3-libs-3.6.1-4.el7.x86_64                                                                                                            2/16
+  Verifying  : containerd.io-1.4.10-3.1.el7.x86_64                                                                                                      3/16
+  Verifying  : docker-ce-rootless-extras-20.10.8-3.el7.x86_64                                                                                           4/16
+  Verifying  : audit-libs-python-2.8.5-4.el7.x86_64                                                                                                     5/16
+  Verifying  : docker-scan-plugin-0.8.0-3.el7.x86_64                                                                                                    6/16
+  Verifying  : libsemanage-python-2.5-14.el7.x86_64                                                                                                     7/16
+  Verifying  : slirp4netns-0.4.3-4.el7_8.x86_64                                                                                                         8/16
+  Verifying  : 2:container-selinux-2.119.2-1.911c772.el7_8.noarch                                                                                       9/16
+  Verifying  : python-IPy-0.75-6.el7.noarch                                                                                                            10/16
+  Verifying  : policycoreutils-python-2.5-34.el7.x86_64                                                                                                11/16
+  Verifying  : 1:docker-ce-cli-20.10.8-3.el7.x86_64                                                                                                    12/16
+  Verifying  : 3:docker-ce-20.10.8-3.el7.x86_64                                                                                                        13/16
+  Verifying  : setools-libs-3.3.8-4.el7.x86_64                                                                                                         14/16
+  Verifying  : fuse-overlayfs-0.7.2-6.el7_8.x86_64                                                                                                     15/16
+  Verifying  : libcgroup-0.41-21.el7.x86_64                                                                                                            16/16
+
+Installed:
+  containerd.io.x86_64 0:1.4.10-3.1.el7                 docker-ce.x86_64 3:20.10.8-3.el7                 docker-ce-cli.x86_64 1:20.10.8-3.el7
+
+Dependency Installed:
+  audit-libs-python.x86_64 0:2.8.5-4.el7                checkpolicy.x86_64 0:2.5-8.el7               container-selinux.noarch 2:2.119.2-1.911c772.el7_8
+  docker-ce-rootless-extras.x86_64 0:20.10.8-3.el7      docker-scan-plugin.x86_64 0:0.8.0-3.el7      fuse-overlayfs.x86_64 0:0.7.2-6.el7_8
+  fuse3-libs.x86_64 0:3.6.1-4.el7                       libcgroup.x86_64 0:0.41-21.el7               libsemanage-python.x86_64 0:2.5-14.el7
+  policycoreutils-python.x86_64 0:2.5-34.el7            python-IPy.noarch 0:0.75-6.el7               setools-libs.x86_64 0:3.3.8-4.el7
+  slirp4netns.x86_64 0:0.4.3-4.el7_8
+
+Complete!
+[root@vm-gkuOA1801016 ~]# systemctl enable docker; systemctl start docker
+Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.
+[root@vm-gkuOA1801016 ~]# docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete
+Digest: sha256:9ade9cc2e26189a19c2e8854b9c8f1e14829b51c55a630ee675a5a9540ef6ccf
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+[root@vm-gkuOA1801016 ~]# docker version
+Client: Docker Engine - Community
+ Version:           20.10.8
+ API version:       1.41
+ Go version:        go1.16.6
+ Git commit:        3967b7d
+ Built:             Fri Jul 30 19:55:49 2021
+ OS/Arch:           linux/amd64
+ Context:           default
+ Experimental:      true
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          20.10.8
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.16.6
+  Git commit:       75249d8
+  Built:            Fri Jul 30 19:54:13 2021
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.4.10
+  GitCommit:        8848fdb7c4ae3815afcc990a8a99d663dda1b590
+ runc:
+  Version:          1.0.2
+  GitCommit:        v1.0.2-0-g52b36a2
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+[root@vm-gkuOA1801016 ~]# docker pull alpine
+Using default tag: latest
+latest: Pulling from library/alpine
+a0d0a0d46f8b: Pull complete
+Digest: sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a
+Status: Downloaded newer image for alpine:latest
+docker.io/library/alpine:latest
+[root@vm-gkuOA1801016 ~]# docker image ls
+REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+hello-world   latest    feb5d9fea6a5   8 days ago    13.3kB
+alpine        latest    14119a10abf4   5 weeks ago   5.6MB
+[root@vm-gkuOA1801016 ~]# yum -y -q install nano
+[root@vm-gkuOA1801016 ~]# mkdir /docker
+[root@vm-gkuOA1801016 ~]# cd /docker
+[root@vm-gkuOA1801016 docker]# nano Dockerfile
+[root@vm-gkuOA1801016 docker]# nano index.html
+[root@vm-gkuOA1801016 docker]# docker build . --tag alenchik/otus:nginx_v1
+Sending build context to Docker daemon  3.584kB
+Step 1/8 : FROM alpine:latest
+ ---> 14119a10abf4
+Step 2/8 : ENV NGINX_VERSION nginx-1.21.3
+ ---> Running in 58b1aeb88c49
+Removing intermediate container 58b1aeb88c49
+ ---> 1a13b367f57a
+Step 3/8 : RUN apk --update --no-cache add build-base         openssl-dev         pcre-dev         zlib-dev         wget
+ ---> Running in 7907a8abeea6
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/main/x86_64/APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/community/x86_64/APKINDEX.tar.gz
+(1/31) Installing libgcc (10.3.1_git20210424-r2)
+(2/31) Installing libstdc++ (10.3.1_git20210424-r2)
+(3/31) Installing binutils (2.35.2-r2)
+(4/31) Installing libmagic (5.40-r1)
+(5/31) Installing file (5.40-r1)
+(6/31) Installing libgomp (10.3.1_git20210424-r2)
+(7/31) Installing libatomic (10.3.1_git20210424-r2)
+(8/31) Installing libgphobos (10.3.1_git20210424-r2)
+(9/31) Installing gmp (6.2.1-r0)
+(10/31) Installing isl22 (0.22-r0)
+(11/31) Installing mpfr4 (4.1.0-r0)
+(12/31) Installing mpc1 (1.2.1-r0)
+(13/31) Installing gcc (10.3.1_git20210424-r2)
+(14/31) Installing musl-dev (1.2.2-r3)
+(15/31) Installing libc-dev (0.7.2-r3)
+(16/31) Installing g++ (10.3.1_git20210424-r2)
+(17/31) Installing make (4.3-r0)
+(18/31) Installing fortify-headers (1.1-r1)
+(19/31) Installing patch (2.7.6-r7)
+(20/31) Installing build-base (0.5-r2)
+(21/31) Installing pkgconf (1.7.4-r0)
+(22/31) Installing openssl-dev (1.1.1l-r0)
+(23/31) Installing libpcre16 (8.44-r0)
+(24/31) Installing libpcre32 (8.44-r0)
+(25/31) Installing pcre (8.44-r0)
+(26/31) Installing libpcrecpp (8.44-r0)
+(27/31) Installing pcre-dev (8.44-r0)
+(28/31) Installing libunistring (0.9.10-r1)
+(29/31) Installing libidn2 (2.3.1-r0)
+(30/31) Installing wget (1.21.1-r1)
+(31/31) Installing zlib-dev (1.2.11-r3)
+Executing busybox-1.33.1-r3.trigger
+OK: 203 MiB in 45 packages
+Removing intermediate container 7907a8abeea6
+ ---> 6a786ffe90c1
+Step 4/8 : RUN mkdir -p /tmp/src &&     cd /tmp/src &&     wget http://nginx.org/download/${NGINX_VERSION}.tar.gz &&     tar zxf ${NGINX_VERSION}.tar.gz &&     cd ${NGINX_VERSION} &&     ./configure --sbin-path=/usr/bin/nginx         --conf-path=/etc/nginx/nginx.conf         --pid-path=/var/run/nginx.pid         --error-log-path=/var/log/nginx/error.log         --http-log-path=/var/log/nginx/access.log         --with-pcre         --with-http_ssl_module &&     make &&     make install &&     rm -rf /tmp/src
+ ---> Running in 79f2cc2954c6
+--2021-10-03 05:14:41--  http://nginx.org/download/nginx-1.21.3.tar.gz
+Resolving nginx.org (nginx.org)... 3.125.197.172, 52.58.199.22, 2a05:d014:edb:5702::6, ...
+Connecting to nginx.org (nginx.org)|3.125.197.172|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1066609 (1.0M) [application/octet-stream]
+Saving to: 'nginx-1.21.3.tar.gz'
+
+     0K .......... .......... .......... .......... ..........  4%  360K 3s
+    50K .......... .......... .......... .......... ..........  9%  708K 2s
+   100K .......... .......... .......... .......... .......... 14%  179M 1s
+   150K .......... .......... .......... .......... .......... 19%  223M 1s
+   200K .......... .......... .......... .......... .......... 24%  708K 1s
+   250K .......... .......... .......... .......... .......... 28%  213M 1s
+   300K .......... .......... .......... .......... .......... 33%  259M 1s
+   350K .......... .......... .......... .......... .......... 38%  257M 0s
+   400K .......... .......... .......... .......... .......... 43%  682K 0s
+   450K .......... .......... .......... .......... .......... 48% 16.9M 0s
+   500K .......... .......... .......... .......... .......... 52%  193M 0s
+   550K .......... .......... .......... .......... .......... 57%  177M 0s
+   600K .......... .......... .......... .......... .......... 62%  150M 0s
+   650K .......... .......... .......... .......... .......... 67%  223M 0s
+   700K .......... .......... .......... .......... .......... 72%  216M 0s
+   750K .......... .......... .......... .......... .......... 76%  191M 0s
+   800K .......... .......... .......... .......... .......... 81%  213M 0s
+   850K .......... .......... .......... .......... .......... 86%  860K 0s
+   900K .......... .......... .......... .......... .......... 91%  223M 0s
+   950K .......... .......... .......... .......... .......... 96%  232M 0s
+  1000K .......... .......... .......... .......... .         100%  241M=0.4s
+
+2021-10-03 05:14:41 (2.43 MB/s) - 'nginx-1.21.3.tar.gz' saved [1066609/1066609]
+
+checking for OS
+ + Linux 3.10.0-1127.el7.x86_64 x86_64
+checking for C compiler ... found
+ + using GNU C compiler
+ + gcc version: 10.3.1 20210424 (Alpine 10.3.1_git20210424)
+checking for gcc -pipe switch ... found
+checking for -Wl,-E switch ... found
+checking for gcc builtin atomic operations ... found
+checking for C99 variadic macros ... found
+checking for gcc variadic macros ... found
+checking for gcc builtin 64 bit byteswap ... found
+checking for unistd.h ... found
+checking for inttypes.h ... found
+checking for limits.h ... found
+checking for sys/filio.h ... not found
+checking for sys/param.h ... found
+checking for sys/mount.h ... found
+checking for sys/statvfs.h ... found
+checking for crypt.h ... found
+checking for Linux specific features
+checking for epoll ... found
+checking for EPOLLRDHUP ... found
+checking for EPOLLEXCLUSIVE ... found
+checking for eventfd() ... found
+checking for O_PATH ... found
+checking for sendfile() ... found
+checking for sendfile64() ... found
+checking for sys/prctl.h ... found
+checking for prctl(PR_SET_DUMPABLE) ... found
+checking for prctl(PR_SET_KEEPCAPS) ... found
+checking for capabilities ... not found
+checking for crypt_r() ... found
+checking for sys/vfs.h ... found
+checking for nobody group ... found
+checking for poll() ... found
+checking for /dev/poll ... not found
+checking for kqueue ... not found
+checking for crypt() ... found
+checking for F_READAHEAD ... not found
+checking for posix_fadvise() ... found
+checking for O_DIRECT ... found
+checking for F_NOCACHE ... not found
+checking for directio() ... not found
+checking for statfs() ... found
+checking for statvfs() ... found
+checking for dlopen() ... found
+checking for sched_yield() ... found
+checking for sched_setaffinity() ... found
+checking for SO_SETFIB ... not found
+checking for SO_REUSEPORT ... found
+checking for SO_ACCEPTFILTER ... not found
+checking for SO_BINDANY ... not found
+checking for IP_TRANSPARENT ... found
+checking for IP_BINDANY ... not found
+checking for IP_BIND_ADDRESS_NO_PORT ... found
+checking for IP_RECVDSTADDR ... not found
+checking for IP_SENDSRCADDR ... not found
+checking for IP_PKTINFO ... found
+checking for IPV6_RECVPKTINFO ... found
+checking for TCP_DEFER_ACCEPT ... found
+checking for TCP_KEEPIDLE ... found
+checking for TCP_FASTOPEN ... found
+checking for TCP_INFO ... found
+checking for accept4() ... found
+checking for int size ... 4 bytes
+checking for long size ... 8 bytes
+checking for long long size ... 8 bytes
+checking for void * size ... 8 bytes
+checking for uint32_t ... found
+checking for uint64_t ... found
+checking for sig_atomic_t ... found
+checking for sig_atomic_t size ... 4 bytes
+checking for socklen_t ... found
+checking for in_addr_t ... found
+checking for in_port_t ... found
+checking for rlim_t ... found
+checking for uintptr_t ... uintptr_t found
+checking for system byte ordering ... little endian
+checking for size_t size ... 8 bytes
+checking for off_t size ... 8 bytes
+checking for time_t size ... 8 bytes
+checking for AF_INET6 ... found
+checking for setproctitle() ... not found
+checking for pread() ... found
+checking for pwrite() ... found
+checking for pwritev() ... found
+checking for strerrordesc_np() ... not found
+checking for sys_nerr ... not found
+checking for _sys_nerr ... not found
+checking for localtime_r() ... found
+checking for clock_gettime(CLOCK_MONOTONIC) ... found
+checking for posix_memalign() ... found
+checking for memalign() ... found
+checking for mmap(MAP_ANON|MAP_SHARED) ... found
+checking for mmap("/dev/zero", MAP_SHARED) ... found
+checking for System V shared memory ... found
+checking for POSIX semaphores ... found
+checking for struct msghdr.msg_control ... found
+checking for ioctl(FIONBIO) ... found
+checking for ioctl(FIONREAD) ... found
+checking for struct tm.tm_gmtoff ... found
+checking for struct dirent.d_namlen ... not found
+checking for struct dirent.d_type ... found
+checking for sysconf(_SC_NPROCESSORS_ONLN) ... found
+checking for sysconf(_SC_LEVEL1_DCACHE_LINESIZE) ... not found
+checking for openat(), fstatat() ... found
+checking for getaddrinfo() ... found
+checking for PCRE library ... found
+checking for PCRE JIT support ... found
+checking for OpenSSL library ... found
+checking for zlib library ... found
+creating objs/Makefile
+
+Configuration summary
+  + using system PCRE library
+  + using system OpenSSL library
+  + using system zlib library
+
+  nginx path prefix: "/usr/local/nginx"
+  nginx binary file: "/usr/bin/nginx"
+  nginx modules path: "/usr/local/nginx/modules"
+  nginx configuration prefix: "/etc/nginx"
+  nginx configuration file: "/etc/nginx/nginx.conf"
+  nginx pid file: "/var/run/nginx.pid"
+  nginx error log file: "/var/log/nginx/error.log"
+  nginx http access log file: "/var/log/nginx/access.log"
+  nginx http client request body temporary files: "client_body_temp"
+  nginx http proxy temporary files: "proxy_temp"
+  nginx http fastcgi temporary files: "fastcgi_temp"
+  nginx http uwsgi temporary files: "uwsgi_temp"
+  nginx http scgi temporary files: "scgi_temp"
+
+make -f objs/Makefile
+make[1]: Entering directory '/tmp/src/nginx-1.21.3'
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/nginx.o \
+        src/core/nginx.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_log.o \
+        src/core/ngx_log.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_palloc.o \
+        src/core/ngx_palloc.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_array.o \
+        src/core/ngx_array.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_list.o \
+        src/core/ngx_list.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_hash.o \
+        src/core/ngx_hash.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_buf.o \
+        src/core/ngx_buf.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_queue.o \
+        src/core/ngx_queue.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_output_chain.o \
+        src/core/ngx_output_chain.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_string.o \
+        src/core/ngx_string.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_parse.o \
+        src/core/ngx_parse.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_parse_time.o \
+        src/core/ngx_parse_time.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_inet.o \
+        src/core/ngx_inet.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_file.o \
+        src/core/ngx_file.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_crc32.o \
+        src/core/ngx_crc32.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_murmurhash.o \
+        src/core/ngx_murmurhash.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_md5.o \
+        src/core/ngx_md5.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_sha1.o \
+        src/core/ngx_sha1.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_rbtree.o \
+        src/core/ngx_rbtree.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_radix_tree.o \
+        src/core/ngx_radix_tree.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_slab.o \
+        src/core/ngx_slab.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_times.o \
+        src/core/ngx_times.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_shmtx.o \
+        src/core/ngx_shmtx.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_connection.o \
+        src/core/ngx_connection.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_cycle.o \
+        src/core/ngx_cycle.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_spinlock.o \
+        src/core/ngx_spinlock.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_rwlock.o \
+        src/core/ngx_rwlock.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_cpuinfo.o \
+        src/core/ngx_cpuinfo.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_conf_file.o \
+        src/core/ngx_conf_file.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_module.o \
+        src/core/ngx_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_resolver.o \
+        src/core/ngx_resolver.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_open_file_cache.o \
+        src/core/ngx_open_file_cache.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_crypt.o \
+        src/core/ngx_crypt.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_proxy_protocol.o \
+        src/core/ngx_proxy_protocol.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_syslog.o \
+        src/core/ngx_syslog.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/ngx_event.o \
+        src/event/ngx_event.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/ngx_event_timer.o \
+        src/event/ngx_event_timer.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/ngx_event_posted.o \
+        src/event/ngx_event_posted.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/ngx_event_accept.o \
+        src/event/ngx_event_accept.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/ngx_event_udp.o \
+        src/event/ngx_event_udp.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/ngx_event_connect.o \
+        src/event/ngx_event_connect.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/ngx_event_pipe.o \
+        src/event/ngx_event_pipe.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_time.o \
+        src/os/unix/ngx_time.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_errno.o \
+        src/os/unix/ngx_errno.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_alloc.o \
+        src/os/unix/ngx_alloc.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_files.o \
+        src/os/unix/ngx_files.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_socket.o \
+        src/os/unix/ngx_socket.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_recv.o \
+        src/os/unix/ngx_recv.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_readv_chain.o \
+        src/os/unix/ngx_readv_chain.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_udp_recv.o \
+        src/os/unix/ngx_udp_recv.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_send.o \
+        src/os/unix/ngx_send.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_writev_chain.o \
+        src/os/unix/ngx_writev_chain.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_udp_send.o \
+        src/os/unix/ngx_udp_send.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_udp_sendmsg_chain.o \
+        src/os/unix/ngx_udp_sendmsg_chain.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_channel.o \
+        src/os/unix/ngx_channel.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_shmem.o \
+        src/os/unix/ngx_shmem.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_process.o \
+        src/os/unix/ngx_process.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_daemon.o \
+        src/os/unix/ngx_daemon.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_setaffinity.o \
+        src/os/unix/ngx_setaffinity.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_setproctitle.o \
+        src/os/unix/ngx_setproctitle.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_posix_init.o \
+        src/os/unix/ngx_posix_init.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_user.o \
+        src/os/unix/ngx_user.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_dlopen.o \
+        src/os/unix/ngx_dlopen.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_process_cycle.o \
+        src/os/unix/ngx_process_cycle.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_linux_init.o \
+        src/os/unix/ngx_linux_init.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/modules/ngx_epoll_module.o \
+        src/event/modules/ngx_epoll_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/os/unix/ngx_linux_sendfile_chain.o \
+        src/os/unix/ngx_linux_sendfile_chain.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/ngx_event_openssl.o \
+        src/event/ngx_event_openssl.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/event/ngx_event_openssl_stapling.o \
+        src/event/ngx_event_openssl_stapling.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/src/core/ngx_regex.o \
+        src/core/ngx_regex.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http.o \
+        src/http/ngx_http.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_core_module.o \
+        src/http/ngx_http_core_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_special_response.o \
+        src/http/ngx_http_special_response.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_request.o \
+        src/http/ngx_http_request.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_parse.o \
+        src/http/ngx_http_parse.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_log_module.o \
+        src/http/modules/ngx_http_log_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_request_body.o \
+        src/http/ngx_http_request_body.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_variables.o \
+        src/http/ngx_http_variables.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_script.o \
+        src/http/ngx_http_script.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_upstream.o \
+        src/http/ngx_http_upstream.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_upstream_round_robin.o \
+        src/http/ngx_http_upstream_round_robin.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_file_cache.o \
+        src/http/ngx_http_file_cache.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_write_filter_module.o \
+        src/http/ngx_http_write_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_header_filter_module.o \
+        src/http/ngx_http_header_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_chunked_filter_module.o \
+        src/http/modules/ngx_http_chunked_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_range_filter_module.o \
+        src/http/modules/ngx_http_range_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_gzip_filter_module.o \
+        src/http/modules/ngx_http_gzip_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_postpone_filter_module.o \
+        src/http/ngx_http_postpone_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_ssi_filter_module.o \
+        src/http/modules/ngx_http_ssi_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_charset_filter_module.o \
+        src/http/modules/ngx_http_charset_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_userid_filter_module.o \
+        src/http/modules/ngx_http_userid_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_headers_filter_module.o \
+        src/http/modules/ngx_http_headers_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/ngx_http_copy_filter_module.o \
+        src/http/ngx_http_copy_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_not_modified_filter_module.o \
+        src/http/modules/ngx_http_not_modified_filter_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_static_module.o \
+        src/http/modules/ngx_http_static_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_autoindex_module.o \
+        src/http/modules/ngx_http_autoindex_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_index_module.o \
+        src/http/modules/ngx_http_index_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_mirror_module.o \
+        src/http/modules/ngx_http_mirror_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_try_files_module.o \
+        src/http/modules/ngx_http_try_files_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_auth_basic_module.o \
+        src/http/modules/ngx_http_auth_basic_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_access_module.o \
+        src/http/modules/ngx_http_access_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_limit_conn_module.o \
+        src/http/modules/ngx_http_limit_conn_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_limit_req_module.o \
+        src/http/modules/ngx_http_limit_req_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_geo_module.o \
+        src/http/modules/ngx_http_geo_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_map_module.o \
+        src/http/modules/ngx_http_map_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_split_clients_module.o \
+        src/http/modules/ngx_http_split_clients_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_referer_module.o \
+        src/http/modules/ngx_http_referer_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_rewrite_module.o \
+        src/http/modules/ngx_http_rewrite_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_ssl_module.o \
+        src/http/modules/ngx_http_ssl_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_proxy_module.o \
+        src/http/modules/ngx_http_proxy_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_fastcgi_module.o \
+        src/http/modules/ngx_http_fastcgi_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_uwsgi_module.o \
+        src/http/modules/ngx_http_uwsgi_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_scgi_module.o \
+        src/http/modules/ngx_http_scgi_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_memcached_module.o \
+        src/http/modules/ngx_http_memcached_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_empty_gif_module.o \
+        src/http/modules/ngx_http_empty_gif_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_browser_module.o \
+        src/http/modules/ngx_http_browser_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_upstream_hash_module.o \
+        src/http/modules/ngx_http_upstream_hash_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_upstream_ip_hash_module.o \
+        src/http/modules/ngx_http_upstream_ip_hash_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
+        src/http/modules/ngx_http_upstream_least_conn_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_upstream_random_module.o \
+        src/http/modules/ngx_http_upstream_random_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
+        src/http/modules/ngx_http_upstream_keepalive_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules \
+        -o objs/src/http/modules/ngx_http_upstream_zone_module.o \
+        src/http/modules/ngx_http_upstream_zone_module.c
+cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+        -o objs/ngx_modules.o \
+        objs/ngx_modules.c
+cc -o objs/nginx \
+objs/src/core/nginx.o \
+objs/src/core/ngx_log.o \
+objs/src/core/ngx_palloc.o \
+objs/src/core/ngx_array.o \
+objs/src/core/ngx_list.o \
+objs/src/core/ngx_hash.o \
+objs/src/core/ngx_buf.o \
+objs/src/core/ngx_queue.o \
+objs/src/core/ngx_output_chain.o \
+objs/src/core/ngx_string.o \
+objs/src/core/ngx_parse.o \
+objs/src/core/ngx_parse_time.o \
+objs/src/core/ngx_inet.o \
+objs/src/core/ngx_file.o \
+objs/src/core/ngx_crc32.o \
+objs/src/core/ngx_murmurhash.o \
+objs/src/core/ngx_md5.o \
+objs/src/core/ngx_sha1.o \
+objs/src/core/ngx_rbtree.o \
+objs/src/core/ngx_radix_tree.o \
+objs/src/core/ngx_slab.o \
+objs/src/core/ngx_times.o \
+objs/src/core/ngx_shmtx.o \
+objs/src/core/ngx_connection.o \
+objs/src/core/ngx_cycle.o \
+objs/src/core/ngx_spinlock.o \
+objs/src/core/ngx_rwlock.o \
+objs/src/core/ngx_cpuinfo.o \
+objs/src/core/ngx_conf_file.o \
+objs/src/core/ngx_module.o \
+objs/src/core/ngx_resolver.o \
+objs/src/core/ngx_open_file_cache.o \
+objs/src/core/ngx_crypt.o \
+objs/src/core/ngx_proxy_protocol.o \
+objs/src/core/ngx_syslog.o \
+objs/src/event/ngx_event.o \
+objs/src/event/ngx_event_timer.o \
+objs/src/event/ngx_event_posted.o \
+objs/src/event/ngx_event_accept.o \
+objs/src/event/ngx_event_udp.o \
+objs/src/event/ngx_event_connect.o \
+objs/src/event/ngx_event_pipe.o \
+objs/src/os/unix/ngx_time.o \
+objs/src/os/unix/ngx_errno.o \
+objs/src/os/unix/ngx_alloc.o \
+objs/src/os/unix/ngx_files.o \
+objs/src/os/unix/ngx_socket.o \
+objs/src/os/unix/ngx_recv.o \
+objs/src/os/unix/ngx_readv_chain.o \
+objs/src/os/unix/ngx_udp_recv.o \
+objs/src/os/unix/ngx_send.o \
+objs/src/os/unix/ngx_writev_chain.o \
+objs/src/os/unix/ngx_udp_send.o \
+objs/src/os/unix/ngx_udp_sendmsg_chain.o \
+objs/src/os/unix/ngx_channel.o \
+objs/src/os/unix/ngx_shmem.o \
+objs/src/os/unix/ngx_process.o \
+objs/src/os/unix/ngx_daemon.o \
+objs/src/os/unix/ngx_setaffinity.o \
+objs/src/os/unix/ngx_setproctitle.o \
+objs/src/os/unix/ngx_posix_init.o \
+objs/src/os/unix/ngx_user.o \
+objs/src/os/unix/ngx_dlopen.o \
+objs/src/os/unix/ngx_process_cycle.o \
+objs/src/os/unix/ngx_linux_init.o \
+objs/src/event/modules/ngx_epoll_module.o \
+objs/src/os/unix/ngx_linux_sendfile_chain.o \
+objs/src/event/ngx_event_openssl.o \
+objs/src/event/ngx_event_openssl_stapling.o \
+objs/src/core/ngx_regex.o \
+objs/src/http/ngx_http.o \
+objs/src/http/ngx_http_core_module.o \
+objs/src/http/ngx_http_special_response.o \
+objs/src/http/ngx_http_request.o \
+objs/src/http/ngx_http_parse.o \
+objs/src/http/modules/ngx_http_log_module.o \
+objs/src/http/ngx_http_request_body.o \
+objs/src/http/ngx_http_variables.o \
+objs/src/http/ngx_http_script.o \
+objs/src/http/ngx_http_upstream.o \
+objs/src/http/ngx_http_upstream_round_robin.o \
+objs/src/http/ngx_http_file_cache.o \
+objs/src/http/ngx_http_write_filter_module.o \
+objs/src/http/ngx_http_header_filter_module.o \
+objs/src/http/modules/ngx_http_chunked_filter_module.o \
+objs/src/http/modules/ngx_http_range_filter_module.o \
+objs/src/http/modules/ngx_http_gzip_filter_module.o \
+objs/src/http/ngx_http_postpone_filter_module.o \
+objs/src/http/modules/ngx_http_ssi_filter_module.o \
+objs/src/http/modules/ngx_http_charset_filter_module.o \
+objs/src/http/modules/ngx_http_userid_filter_module.o \
+objs/src/http/modules/ngx_http_headers_filter_module.o \
+objs/src/http/ngx_http_copy_filter_module.o \
+objs/src/http/modules/ngx_http_not_modified_filter_module.o \
+objs/src/http/modules/ngx_http_static_module.o \
+objs/src/http/modules/ngx_http_autoindex_module.o \
+objs/src/http/modules/ngx_http_index_module.o \
+objs/src/http/modules/ngx_http_mirror_module.o \
+objs/src/http/modules/ngx_http_try_files_module.o \
+objs/src/http/modules/ngx_http_auth_basic_module.o \
+objs/src/http/modules/ngx_http_access_module.o \
+objs/src/http/modules/ngx_http_limit_conn_module.o \
+objs/src/http/modules/ngx_http_limit_req_module.o \
+objs/src/http/modules/ngx_http_geo_module.o \
+objs/src/http/modules/ngx_http_map_module.o \
+objs/src/http/modules/ngx_http_split_clients_module.o \
+objs/src/http/modules/ngx_http_referer_module.o \
+objs/src/http/modules/ngx_http_rewrite_module.o \
+objs/src/http/modules/ngx_http_ssl_module.o \
+objs/src/http/modules/ngx_http_proxy_module.o \
+objs/src/http/modules/ngx_http_fastcgi_module.o \
+objs/src/http/modules/ngx_http_uwsgi_module.o \
+objs/src/http/modules/ngx_http_scgi_module.o \
+objs/src/http/modules/ngx_http_memcached_module.o \
+objs/src/http/modules/ngx_http_empty_gif_module.o \
+objs/src/http/modules/ngx_http_browser_module.o \
+objs/src/http/modules/ngx_http_upstream_hash_module.o \
+objs/src/http/modules/ngx_http_upstream_ip_hash_module.o \
+objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
+objs/src/http/modules/ngx_http_upstream_random_module.o \
+objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
+objs/src/http/modules/ngx_http_upstream_zone_module.o \
+objs/ngx_modules.o \
+-lpcre -lssl -lcrypto -lz \
+-Wl,-E
+sed -e "s|%%PREFIX%%|/usr/local/nginx|" \
+        -e "s|%%PID_PATH%%|/var/run/nginx.pid|" \
+        -e "s|%%CONF_PATH%%|/etc/nginx/nginx.conf|" \
+        -e "s|%%ERROR_LOG_PATH%%|/var/log/nginx/error.log|" \
+        < man/nginx.8 > objs/nginx.8
+make[1]: Leaving directory '/tmp/src/nginx-1.21.3'
+make -f objs/Makefile install
+make[1]: Entering directory '/tmp/src/nginx-1.21.3'
+test -d '/usr/local/nginx' || mkdir -p '/usr/local/nginx'
+test -d '/usr/bin' \
+        || mkdir -p '/usr/bin'
+test ! -f '/usr/bin/nginx' \
+        || mv '/usr/bin/nginx' \
+                '/usr/bin/nginx.old'
+cp objs/nginx '/usr/bin/nginx'
+test -d '/etc/nginx' \
+        || mkdir -p '/etc/nginx'
+cp conf/koi-win '/etc/nginx'
+cp conf/koi-utf '/etc/nginx'
+cp conf/win-utf '/etc/nginx'
+test -f '/etc/nginx/mime.types' \
+        || cp conf/mime.types '/etc/nginx'
+cp conf/mime.types '/etc/nginx/mime.types.default'
+test -f '/etc/nginx/fastcgi_params' \
+        || cp conf/fastcgi_params '/etc/nginx'
+cp conf/fastcgi_params \
+        '/etc/nginx/fastcgi_params.default'
+test -f '/etc/nginx/fastcgi.conf' \
+        || cp conf/fastcgi.conf '/etc/nginx'
+cp conf/fastcgi.conf '/etc/nginx/fastcgi.conf.default'
+test -f '/etc/nginx/uwsgi_params' \
+        || cp conf/uwsgi_params '/etc/nginx'
+cp conf/uwsgi_params \
+        '/etc/nginx/uwsgi_params.default'
+test -f '/etc/nginx/scgi_params' \
+        || cp conf/scgi_params '/etc/nginx'
+cp conf/scgi_params \
+        '/etc/nginx/scgi_params.default'
+test -f '/etc/nginx/nginx.conf' \
+        || cp conf/nginx.conf '/etc/nginx/nginx.conf'
+cp conf/nginx.conf '/etc/nginx/nginx.conf.default'
+test -d '/var/run' \
+        || mkdir -p '/var/run'
+test -d '/var/log/nginx' \
+        || mkdir -p '/var/log/nginx'
+test -d '/usr/local/nginx/html' \
+        || cp -R html '/usr/local/nginx'
+test -d '/var/log/nginx' \
+        || mkdir -p '/var/log/nginx'
+make[1]: Leaving directory '/tmp/src/nginx-1.21.3'
+Removing intermediate container 79f2cc2954c6
+ ---> 8cb0f239b65f
+Step 5/8 : RUN ln -sf /dev/stdout /var/log/nginx/access.log &&     ln -sf /dev/stderr /var/log/nginx/error.log
+ ---> Running in ba3dd816be5e
+Removing intermediate container ba3dd816be5e
+ ---> 541c7d87950d
+Step 6/8 : COPY index.html /usr/local/nginx/html/index.html
+ ---> ea7f3334d062
+Step 7/8 : EXPOSE 80
+ ---> Running in ba63d54dfab6
+Removing intermediate container ba63d54dfab6
+ ---> f0e8cef7457e
+Step 8/8 : CMD ["nginx", "-g", "daemon off;"]
+ ---> Running in b97dde534227
+Removing intermediate container b97dde534227
+ ---> e1f53b6c5db8
+Successfully built e1f53b6c5db8
+Successfully tagged alenchik/otus:nginx_v1
+[root@vm-gkuOA1801016 docker]# docker run -d -p 8080:80 alenchik/otus:nginx_v1
+127dbc6e8112726e67b439d80263d68302de4329ca4ff3acb6663e7d55125b3b
+[root@vm-gkuOA1801016 docker]# docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+127dbc6e8112   alenchik/otus:nginx_v1   "nginx -g 'daemon of…"   33 seconds ago   Up 32 seconds   0.0.0.0:8080->80/tcp, :::8080->80/tcp   heuristic_mendel
+[root@vm-gkuOA1801016 docker]# curl http://127.0.0.1:8080
+Hello Otus! This is from Alexey!
+[root@vm-gkuOA1801016 docker]# docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: alenchik
+Password:
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+
+[root@vm-gkuOA1801016 docker]# docker push alenchik/otus:nginx_v1
+The push refers to repository [docker.io/alenchik/otus]
+e7b746f1f6dd: Pushed
+26ce46e9a9c6: Pushed
+9ae0270a7611: Pushed
+447185ab6580: Pushed
+e2eb06d8af82: Mounted from library/nginx
+nginx_v1: digest: sha256:f1572e32b03626a0d5d1aaf9b7dfadb80d082ba0906ad608210c311b45c40471 size: 1365
+[root@vm-gkuOA1801016 docker]#

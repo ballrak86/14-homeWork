@@ -1,0 +1,19 @@
+yum install -y yum-utils
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install docker-ce docker-ce-cli containerd.io
+systemctl enable docker; systemctl start docker
+docker run hello-world
+docker version
+docker pull alpine
+docker image ls
+yum -y -q install nano
+mkdir /docker
+cd /docker
+nano Dockerfile
+nano index.html
+docker build . --tag alenchik/otus:nginx_v1
+docker run -d -p 8080:80 alenchik/otus:nginx_v1
+docker ps
+curl http://127.0.0.1:8080
+docker login
+docker push alenchik/otus:nginx_v1
